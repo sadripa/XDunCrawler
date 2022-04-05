@@ -1,0 +1,64 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "MonsterMainResource",
+"language": "GDScript",
+"path": "res://Resources/Monster Resources/Main Resources/monster_main_res.gd"
+}, {
+"base": "Resource",
+"class": "Scenery",
+"language": "GDScript",
+"path": "res://Resources/Scenery Resources/scenery_res.gd"
+}, {
+"base": "Node",
+"class": "State",
+"language": "GDScript",
+"path": "res://addons/xsm/state.gd"
+}, {
+"base": "State",
+"class": "StateRoot",
+"language": "GDScript",
+"path": "res://addons/xsm/state_root.gd"
+} ]
+_global_script_class_icons={
+"MonsterMainResource": "res://System Resources/Icons/Resources/monster_main_res_icon.png",
+"Scenery": "res://System Resources/Icons/Resources/scenery_res_icon.png",
+"State": "",
+"StateRoot": ""
+}
+
+[application]
+
+config/name="XDunCrawler"
+config/icon="res://icon.png"
+
+[autoload]
+
+EnumDatabase="*res://System Resources/Autoloads/enum_database.gd"
+CombatMethods="*res://System Resources/Autoloads/combat_methods.gd"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/xsm/plugin.cfg" )
+
+[physics]
+
+common/enable_pause_aware_picking=true
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"

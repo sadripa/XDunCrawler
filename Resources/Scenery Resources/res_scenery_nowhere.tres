@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Scenery Resources/scenery_res.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+name = "Nowhere_00"
+scenery_status = 0
