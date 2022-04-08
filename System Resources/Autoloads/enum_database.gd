@@ -31,6 +31,18 @@ enum BodyWeaknesses {
 	VAGINA,
 }
 
+# w========
+
+# Combat specific
+
+enum CombatStatus {
+	NONE,
+	BROKEN,
+	FRIGID,
+	HORNY
+}
+
+
 # ==========
 
 # Scenery

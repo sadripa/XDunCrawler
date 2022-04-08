@@ -4,6 +4,9 @@ extends Node
 
 # =========
 
+# Combat math - used to make changes to a damage output value
+#				that will be applied at some point
+
 # Increase initial op by op to add.
 func incr_op_int(init_op: int, op_toadd: int) -> int:
 	assert(op_toadd >= 1)
@@ -61,3 +64,28 @@ func resistance_check(input_op, input_weakness: Array, monster_main_res: Monster
 		if body_crit_weakness.has(input_weakness[x]):
 			crit_weak_multiply(output_op)
 	return output_op
+
+# ==========
+
+# Status
+
+# Checks if the new input status is not equal to currently present status
+func can_update_status(current_status, new_status) -> bool:
+	if current_status != new_status: return true
+	else: return false
+
+# Automatically detrmine the status turn duration (1 to 3 turns)
+func en_set_status_timer() -> void:
+	randomize()
+	CombatTracker.en_status_timer = randi() % 3 + 1
+
+func en_apply_status(current_status) -> void:
+	match current_status:
+		EnumDatabase.CombatStatus.NONE:
+			if CombatTracker.en_can_act == false: CombatTracker.en_can_act = true
+		EnumDatabase.CombatStatus.BROKEN:
+			CombatTracker.en_can_act = true
+		EnumDatabase.CombatStatus.HORNY:
+			"Monster takes always *2 damage on OP"
+		EnumDatabase.CombatStatus.FRIGID:
+			"Monster takes *0.5 damage on OP"
