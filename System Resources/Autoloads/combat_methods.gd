@@ -7,6 +7,8 @@ extends Node
 # Combat math - used to make changes to a damage output value
 #				that will be applied at some point
 
+# Increase and Decrase should be applied at the end after being treated with any multiplier
+
 # Increase initial op by op to add.
 func incr_op_int(init_op: int, op_toadd: int) -> int:
 	assert(op_toadd >= 1)
@@ -48,7 +50,7 @@ func crit_weak_multiply(input_op) -> int:
 	return int(input_op * 4)
 
 # Multiply input_op based on input_wakness and monster_main_res weakness
-func resistance_check(input_op, input_weakness: Array, monster_main_res: MonsterMainResource) -> int:
+func resistance_check(input_op, input_weakness: Array, monster_main_res: Monster) -> int:
 	assert(input_weakness.size() > 0 and monster_main_res != null)
 	var output_op: int = input_op
 	var body_resistance: Array = monster_main_res.body_resistance
@@ -79,13 +81,25 @@ func en_set_status_timer() -> void:
 	randomize()
 	CombatTracker.en_status_timer = randi() % 3 + 1
 
-func en_apply_status(current_status) -> void:
+# Match type method to apply the input status (has to be a EnumDatabse.CombatStatus)
+func en_apply_status(current_status, input_op: int) -> void:
 	match current_status:
 		EnumDatabase.CombatStatus.NONE:
 			if CombatTracker.en_can_act == false: CombatTracker.en_can_act = true
 		EnumDatabase.CombatStatus.BROKEN:
 			CombatTracker.en_can_act = true
 		EnumDatabase.CombatStatus.HORNY:
-			"Monster takes always *2 damage on OP"
+			weak_multiply(input_op)
 		EnumDatabase.CombatStatus.FRIGID:
-			"Monster takes *0.5 damage on OP"
+			res_multiply(input_op)
+
+# ==========
+
+# Behavior related functions that use the XSM
+
+# Choose and move to a random sub state that is child the ref_state
+func random_sub_state(ref_state: State) -> void:
+	var child_count: int = ref_state.get_child_count()
+	randomize()
+	var chosen_child: int = randi() % child_count
+	ref_state.change_state(ref_state.get_child(chosen_child).name)

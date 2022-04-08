@@ -1,5 +1,5 @@
 extends Resource
-class_name MonsterMainResource, "res://System Resources/Icons/Resources/monster_main_res_icon.png"
+class_name Monster, "res://System Resources/Icons/Resources/monster_main_res_icon.png"
 
 # Main data
 export(String) var name

@@ -1,11 +1,22 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://addons/xsm/state_root.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Initialize/combat_initialize.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_player_input.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_monster_input.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Monster Behaviors/Zero/behavior_zero.tscn" type="PackedScene" id=5]
 
 [node name="Combat StateRoot" type="Node"]
 script = ExtResource( 1 )
+fsm_owner = null
 animation_player = null
 
 [node name="Initialize" type="Node" parent="."]
 script = ExtResource( 2 )
+monster_behavior_sc = ExtResource( 5 )
+
+[node name="Player Input" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Monster Input" type="Node" parent="."]
+script = ExtResource( 4 )
