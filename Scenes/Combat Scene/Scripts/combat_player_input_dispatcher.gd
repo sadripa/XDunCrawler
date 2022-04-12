@@ -15,4 +15,4 @@ func _ready() -> void:
 func _input(_event) -> void:
 	# FOR TESTING
 	if Input.is_key_pressed(KEY_1):
-		emit_signal("skill_chosen", load("res://Resources/Skill Resources/skill_test.tres"))
+		emit_signal("skill_chosen", load("res://Resources/Skill Resources/skill_vaginal_penetration.tres"))

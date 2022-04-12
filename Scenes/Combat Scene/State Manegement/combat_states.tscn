@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://addons/xsm/state_root.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Initialize/combat_initialize.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_player_input.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_monster_input.gd" type="Script" id=4]
-[ext_resource path="res://Scenes/Combat Scene/State Manegement/Monster Behaviors/Zero/behavior_zero.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Resources/Monster Resources/Main Resources/monter_main_res_zero.tres" type="Resource" id=5]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_player_execution.gd" type="Script" id=6]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_monster_response.gd" type="Script" id=7]
 
 [node name="Combat StateRoot" type="Node"]
 script = ExtResource( 1 )
@@ -13,10 +15,16 @@ animation_player = null
 
 [node name="Initialize" type="Node" parent="."]
 script = ExtResource( 2 )
-monster_behavior_sc = ExtResource( 5 )
+monster_res = ExtResource( 5 )
 
 [node name="Player Input" type="Node" parent="."]
 script = ExtResource( 3 )
+
+[node name="Player Execution" type="Node" parent="."]
+script = ExtResource( 6 )
+
+[node name="Monster Response" type="Node" parent="."]
+script = ExtResource( 7 )
 
 [node name="Monster Input" type="Node" parent="."]
 script = ExtResource( 4 )

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" load_steps=2 format=2]
+[gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Monster Resources/Main Resources/monster_main_res.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Monster Behaviors/Zero/behavior_zero.tscn" type="PackedScene" id=2]
 
 [resource]
 script = ExtResource( 1 )
@@ -13,3 +14,4 @@ body_crit_weakness = [ 5 ]
 base_op = 1
 warm_state = 0
 hot_state = 0
+behavior_scene = ExtResource( 2 )

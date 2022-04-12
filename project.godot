@@ -52,6 +52,7 @@ config/icon="res://icon.png"
 EnumDatabase="*res://System Resources/Autoloads/enum_database.gd"
 CombatMethods="*res://System Resources/Autoloads/combat_methods.gd"
 CombatTracker="*res://System Resources/Autoloads/combat_tracker.gd"
+MSVDatabase="*res://System Resources/Autoloads/monster_skills_visual_database.gd"
 
 [display]
 
