@@ -9,7 +9,11 @@ func _on_enter(skill_chosen) -> void:
 #	print("SKILL: %s" % skill_chosen.name)
 	
 	# Chosen skill will hold information for the visual and numerical execution
-	print(_find_skill_sprite(skill_chosen.dict_name)) # Need the complementary function to use the sprite visually
+	print(_find_skill_sprite(skill_chosen)) # Need the complementary function to use the sprite visually
+	
+	# FOR TESTING, has to be connected to monster response next
+	CombatTracker.turn += 1
+	change_state("Draw Skill")
 
 
 # Find the path of a skill sprite based on a string coming from the skill resource

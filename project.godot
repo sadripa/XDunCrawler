@@ -19,11 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Scenery Resources/scenery_res.gd"
 }, {
-"base": "Resource",
-"class": "Skill",
-"language": "GDScript",
-"path": "res://Resources/Skill Resources/skill_res.gd"
-}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -37,7 +32,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "Monster": "res://System Resources/Icons/Resources/monster_main_res_icon.png",
 "Scenery": "res://System Resources/Icons/Resources/scenery_res_icon.png",
-"Skill": "res://System Resources/Icons/Resources/skill_res_icon.png",
 "State": "",
 "StateRoot": ""
 }
@@ -58,6 +52,7 @@ MSVDatabase="*res://System Resources/Autoloads/monster_skills_visual_database.gd
 
 window/size/width=1920
 window/size/height=1080
+window/handheld/orientation="portrait"
 
 [editor_plugins]
 
