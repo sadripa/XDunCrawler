@@ -14,6 +14,9 @@ func _on_enter(_args) -> void:
 
 
 func _draw_skill() -> void:
+	if CombatTracker.pl_skill_draw.size() == 0:
+		CombatTracker.back_to_draw()
+	
 	var drawn_skills: Array = []
 	if CombatTracker.turn == 1:
 		drawn_skills = CombatTracker.random_draw_skill(3)

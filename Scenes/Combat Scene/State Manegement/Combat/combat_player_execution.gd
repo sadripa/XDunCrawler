@@ -6,14 +6,20 @@ extends State
 func _on_enter(skill_chosen) -> void:
 	print("==================")
 	print("STATE: player exectuion")
-#	print("SKILL: %s" % skill_chosen.name)
 	
 	# Chosen skill will hold information for the visual and numerical execution
+	_execute_skill_method(skill_chosen)
 	print(_find_skill_sprite(skill_chosen)) # Need the complementary function to use the sprite visually
 	
 	# FOR TESTING, has to be connected to monster response next
 	CombatTracker.turn += 1
-	change_state("Draw Skill")
+	change_state("Win Check", self.name)
+
+
+# Execute the skill by finding it in the dictionary.
+func _execute_skill_method(skill_name: String) -> void:
+	assert(MSVDatabase.has_method(skill_name), "There is no method with the skill_name: %s" % skill_name)
+	MSVDatabase.call(skill_name)
 
 
 # Find the path of a skill sprite based on a string coming from the skill resource

@@ -33,15 +33,27 @@ var initial_decks: Dictionary = {
 
 var vaginal_penetration: Dictionary = {
 	"name" : "Vaginal Penetration",
-	"body_weakness" : EnumDatabase.BodyWeaknesses.VAGINA,
+	"body_weakness" : [EnumDatabase.BodyWeaknesses.VAGINA],
 	"sprite_zero" : "Zero Vaginal Penetration"
 }
 
+func vaginal_penetration() -> void:
+	var attack_op: int = 5
+	attack_op = CombatMethods.resistance_check(attack_op, vaginal_penetration["body_weakness"], CombatTracker.en_monster_res)
+	CombatTracker.en_op = CombatMethods.incr_op_int(CombatTracker.en_op, attack_op)
+	CombatMethods.tween_progressbar_value(get_node("/root/Combat").monsterop, get_node("/root/Combat").tween, CombatTracker.en_op)
+
 var test_skill: Dictionary = {
 	"name" : "Test Skill",
-	"body_weakness" : EnumDatabase.BodyWeaknesses.NONE,
+	"body_weakness" : [EnumDatabase.BodyWeaknesses.TIGHS],
 	"sprite_zero" : "Zero Test Skill"
 }
+
+func test_skill() -> void:
+	var attack_op: int = 5
+	attack_op = CombatMethods.resistance_check(attack_op, test_skill["body_weakness"], CombatTracker.en_monster_res)
+	CombatTracker.en_op = CombatMethods.incr_op_int(CombatTracker.en_op, attack_op)
+	CombatMethods.tween_progressbar_value(get_node("/root/Combat").monsterop, get_node("/root/Combat").tween, CombatTracker.en_op)
 
 
 # ==========

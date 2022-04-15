@@ -35,6 +35,13 @@ enum BodyWeaknesses {
 
 # Combat specific
 
+enum HornyStatus {
+	NORMAL,
+	WARM,
+	HOT,
+	CUM
+}
+
 enum CombatStatus {
 	NONE,
 	BROKEN,

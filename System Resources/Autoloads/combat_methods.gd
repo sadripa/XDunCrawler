@@ -58,13 +58,13 @@ func resistance_check(input_op, input_weakness: Array, monster_main_res: Monster
 	var body_crit_weakness: Array = monster_main_res.body_crit_weakness
 	for x in input_weakness.size():
 		if body_resistance.has(input_weakness[x]):
-			res_multiply(output_op)
+			output_op = res_multiply(output_op)
 	for x in input_weakness.size():
 		if body_weakness.has(input_weakness[x]):
-			weak_multiply(output_op)
+			output_op = weak_multiply(output_op)
 	for x in input_weakness.size():
 		if body_crit_weakness.has(input_weakness[x]):
-			crit_weak_multiply(output_op)
+			output_op = crit_weak_multiply(output_op)
 	return output_op
 
 # ==========
@@ -103,3 +103,14 @@ func random_sub_state(ref_state: State) -> void:
 	randomize()
 	var chosen_child: int = randi() % child_count
 	ref_state.change_state(ref_state.get_child(chosen_child).name)
+
+# ==========
+
+# UI related functions
+
+func tween_progressbar_value(pb: ProgressBar, tween: Tween, new_value: int) -> void:
+	var duration: float = abs(new_value - pb.value) * 0.25
+	tween.interpolate_property(pb, "value", pb.value, new_value, duration, Tween.TRANS_CUBIC)
+	tween.start()
+	yield(tween, "tween_completed")
+	tween.remove(pb, "value")

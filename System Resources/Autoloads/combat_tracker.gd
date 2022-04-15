@@ -16,6 +16,8 @@ var pl_skill_blocked: Array = [] # Skills that should not be used again in this 
 var en_op: int = 0
 var en_max_op: int = 0
 var en_name: String = "NONE"
+var en_monster_res: Resource
+var en_hs = EnumDatabase.HornyStatus.NORMAL # Horny Status
 var en_can_act: bool = true
 var en_status_timer: int = 0
 
@@ -34,6 +36,11 @@ func init_deck_combat() -> void:
 	pl_skill_draw.clear()
 	pl_skill_blocked.clear()
 	pl_skill_draw = pl_skill_deck
+
+# Move a skill from the hand to hold, by index
+func hand_to_hold(index: int) -> void:
+	pl_skill_hold.append(pl_skill_hand[index])
+	pl_skill_hand.remove(index)
 
 # Move skills back to draw
 func back_to_draw() -> void:

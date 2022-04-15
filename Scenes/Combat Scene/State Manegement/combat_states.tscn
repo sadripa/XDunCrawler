@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/xsm/state_root.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Initialize/combat_initialize.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_player_execution.gd" type="Script" id=6]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_monster_response.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_darw_skill.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Combat Scene/State Manegement/Combat/combat_win_check.gd" type="Script" id=9]
 
 [node name="Combat StateRoot" type="Node"]
 script = ExtResource( 1 )
@@ -32,3 +33,6 @@ script = ExtResource( 7 )
 
 [node name="Monster Input" type="Node" parent="."]
 script = ExtResource( 4 )
+
+[node name="Win Check" type="Node" parent="."]
+script = ExtResource( 9 )

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Resources/Monster Resources/Main Resources/monster_main_res.gd"
 }, {
+"base": "ProgressBar",
+"class": "OPbar",
+"language": "GDScript",
+"path": "res://Scenes/Combat Scene/UI/ProgressBarOP/progressbar_op.gd"
+}, {
 "base": "Resource",
 "class": "Scenery",
 "language": "GDScript",
@@ -31,6 +36,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Monster": "res://System Resources/Icons/Resources/monster_main_res_icon.png",
+"OPbar": "",
 "Scenery": "res://System Resources/Icons/Resources/scenery_res_icon.png",
 "State": "",
 "StateRoot": ""

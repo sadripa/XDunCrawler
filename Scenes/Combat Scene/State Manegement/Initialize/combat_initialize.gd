@@ -41,6 +41,7 @@ func _import_monster_data() -> void:
 	monster_op_bar.max_value = CombatTracker.en_max_op
 	CombatTracker.en_name = monster_res.name
 	monster_name_lab.text = CombatTracker.en_name
+	CombatTracker.en_monster_res = monster_res
 	
 	# TO ADD
 	# - Weaknesses UI, with discovery over time (octopath traveler)
