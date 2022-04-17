@@ -31,7 +31,27 @@ enum BodyWeaknesses {
 	VAGINA,
 }
 
-# w========
+# =========
+
+# Skill specific
+
+enum SkillType {
+	NONE,
+	PENETRATION,
+	STATUS,
+	STIMULATION
+}
+
+# Used to highlight the result of skill use
+enum SkillResult {
+	NONE,
+	RESIST,
+	WEAK,
+	CRIT_WEAK
+}
+
+
+# =========
 
 # Combat specific
 
@@ -48,7 +68,6 @@ enum CombatStatus {
 	FRIGID,
 	HORNY
 }
-
 
 # ==========
 

@@ -10,4 +10,4 @@ func _on_enter(past_state) -> void:
 	else:
 		match past_state:
 			"Player Execution":
-				change_state("Draw Skill") # FOR TESTING, should be changed
+				change_state("Monster Response") # FOR TESTING, should be changed

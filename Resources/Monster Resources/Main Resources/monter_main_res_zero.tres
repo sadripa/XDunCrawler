@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource( 1 )
 name = "Zero"
+code_name = "zero"
 monster_species = 1
 monster_type = 3
 body_resistance = [ 6 ]

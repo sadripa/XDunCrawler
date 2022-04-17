@@ -3,6 +3,7 @@ class_name Monster, "res://System Resources/Icons/Resources/monster_main_res_ico
 
 # Main data
 export(String) var name
+export(String) var code_name
 export(EnumDatabase.MonsterSpecies) var monster_species
 export(EnumDatabase.MonsterType) var monster_type
 export(Array, EnumDatabase.BodyWeaknesses) var body_resistance

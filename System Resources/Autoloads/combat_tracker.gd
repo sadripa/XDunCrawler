@@ -23,6 +23,8 @@ var en_status_timer: int = 0
 
 # Combat
 var turn: int = 0
+var skill_chosen: String = ""
+var skill_result # EnumDatabse.SkillResult decided by when a skill is used (works both for player and monster)
 
 # =========
 

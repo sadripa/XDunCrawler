@@ -52,19 +52,24 @@ func crit_weak_multiply(input_op) -> int:
 # Multiply input_op based on input_wakness and monster_main_res weakness
 func resistance_check(input_op, input_weakness: Array, monster_main_res: Monster) -> int:
 	assert(input_weakness.size() > 0 and monster_main_res != null)
-	var output_op: int = input_op
+	var output_op: int = input_op # op that undergoes checks and changes
 	var body_resistance: Array = monster_main_res.body_resistance
 	var body_weakness: Array = monster_main_res.body_weakness
 	var body_crit_weakness: Array = monster_main_res.body_crit_weakness
 	for x in input_weakness.size():
 		if body_resistance.has(input_weakness[x]):
 			output_op = res_multiply(output_op)
+			CombatTracker.skill_result = EnumDatabase.SkillResult.RESIST
 	for x in input_weakness.size():
 		if body_weakness.has(input_weakness[x]):
 			output_op = weak_multiply(output_op)
+			CombatTracker.skill_result = EnumDatabase.SkillResult.WEAK
 	for x in input_weakness.size():
 		if body_crit_weakness.has(input_weakness[x]):
 			output_op = crit_weak_multiply(output_op)
+			CombatTracker.skill_result = EnumDatabase.SkillResult.CRIT_WEAK
+	if input_op == output_op:
+		EnumDatabase.SkillResult.NONE
 	return output_op
 
 # ==========

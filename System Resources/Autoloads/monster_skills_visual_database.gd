@@ -31,10 +31,25 @@ var initial_decks: Dictionary = {
 
 # MC to Monster
 
+#	DICTIONARY FORMAT
+#	"name": ,
+#	"body_weakness": ,
+#	"is_response_forced": ,
+#	
+#	"sprite_xxx": ,
+#	"response_xxx" : ,
+
+
 var vaginal_penetration: Dictionary = {
 	"name" : "Vaginal Penetration",
 	"body_weakness" : [EnumDatabase.BodyWeaknesses.VAGINA],
-	"sprite_zero" : "Zero Vaginal Penetration"
+	"is_response_forced" : false,
+	
+	"sprite_zero" : "Zero Vaginal Penetration",
+	"response_zero" : [
+		"Weakness hit.",
+		"1... 2... 3... Getting hornier."
+	]
 }
 
 func vaginal_penetration() -> void:
@@ -46,6 +61,7 @@ func vaginal_penetration() -> void:
 var test_skill: Dictionary = {
 	"name" : "Test Skill",
 	"body_weakness" : [EnumDatabase.BodyWeaknesses.TIGHS],
+	
 	"sprite_zero" : "Zero Test Skill"
 }
 
