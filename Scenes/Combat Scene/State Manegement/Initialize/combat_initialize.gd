@@ -19,7 +19,7 @@ func _on_enter(_args) -> void:
 	CombatTracker.turn = 1
 	
 	# Change State
-	change_state("Draw Skill")
+	change_state("Turn Updates")
 
 
 func _import_monster_data() -> void:
@@ -50,7 +50,7 @@ func _import_monster_data() -> void:
 # Add behavior of imported monster
 func _add_behavior_to_sm() -> void:
 	assert(monster_res != null, "There is no monster resource to initialize.")
-	var monster_behavior: State = monster_res.behavior_scene.instance()
-	var monster_input: State = get_parent().get_node("Monster Input")
+	var monster_behavior_specific: State = monster_res.behavior_scene.instance()
+	var monster_behavior: State = get_parent().get_node("Monster Behavior")
 	
-	monster_input.add_child(monster_behavior)
+	monster_behavior.add_child(monster_behavior_specific)

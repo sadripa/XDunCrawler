@@ -62,11 +62,20 @@ enum HornyStatus {
 	CUM
 }
 
+# Statuses that can be applied by the field
 enum CombatStatus {
 	NONE,
 	BROKEN,
 	FRIGID,
-	HORNY
+	HORNY,
+	SENSITIVE 
+}
+
+var combat_status_dict: Dictionary = {
+	CombatStatus.SENSITIVE : [
+		"Sensitive",
+		"50% probability of doubling the OP inflicted."
+	]
 }
 
 # ==========

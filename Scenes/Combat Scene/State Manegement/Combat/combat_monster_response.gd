@@ -14,7 +14,7 @@ func _on_enter(_args) -> void:
 		print("RESPONSE:")
 		print(_select_response_string(CombatTracker.skill_chosen))
 	
-	change_state("Draw Skill") # FOR TESTING
+	change_state("Monster Behavior")
 
 
 # Decide if to respond this turn 

@@ -5,6 +5,7 @@ extends Node
 # Player
 var pl_op: int = 0
 var pl_max_op: int = 40
+var pl_status: Array = []
 var pl_skill_deck: Array = [] # The skills currently held by the player
 var pl_skill_draw: Array = [] # Cards that can be drawn (whole deck at the start of combat)
 var pl_skill_hand: Array = [] # Skill in hand at the moment
@@ -15,16 +16,17 @@ var pl_skill_blocked: Array = [] # Skills that should not be used again in this 
 # Enemy
 var en_op: int = 0
 var en_max_op: int = 0
+var en_status: Array = []
 var en_name: String = "NONE"
 var en_monster_res: Resource
 var en_hs = EnumDatabase.HornyStatus.NORMAL # Horny Status
 var en_can_act: bool = true
-var en_status_timer: int = 0
 
 # Combat
 var turn: int = 0
 var skill_chosen: String = ""
 var skill_result # EnumDatabse.SkillResult decided by when a skill is used (works both for player and monster)
+var activated_statuses: Array = []
 
 # =========
 

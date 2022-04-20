@@ -5,7 +5,7 @@ extends State
 onready var combat: Control = get_parent().get_parent()
 
 func _on_enter(_args) -> void:
-	print("==================+++++++++++++++")
+	print("==================")
 	print("STATE: draw skill")
 	
 	_draw_skill()

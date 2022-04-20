@@ -58,6 +58,8 @@ MSVDatabase="*res://System Resources/Autoloads/monster_skills_visual_database.gd
 
 window/size/width=1920
 window/size/height=1080
+window/size/test_width=650
+window/size/test_height=1080
 window/handheld/orientation="portrait"
 
 [editor_plugins]
