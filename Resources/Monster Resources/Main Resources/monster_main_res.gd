@@ -12,8 +12,8 @@ export(Array, EnumDatabase.BodyWeaknesses) var body_crit_weakness
 
 # Orgasm Points
 export(int, 1, 100, 5) var max_op
-export(int, 10, 100, 5) var warm_state # Percentage to enter warm state
-export(int, 10, 100, 5) var hot_state # Percentage to enter hot state
+export(int, 5, 100, 5) var warm_state # OP to enter warm state
+export(int, 5, 100, 5) var hot_state # OP to enter hot state
 
 # Behavior (skills)
 export(PackedScene) var behavior_scene # Scene with behavior (it holds its own functions and art)

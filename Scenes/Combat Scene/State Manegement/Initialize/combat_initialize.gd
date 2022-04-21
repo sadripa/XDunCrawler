@@ -27,9 +27,9 @@ func _import_monster_data() -> void:
 	assert(get_parent().get_parent().name == "Combat", "Combat State Machine is not a child of Combat")
 	
 	# Getting UI nodes
-	var combat: Control = get_parent().get_parent()
-	var top: Control = combat.get_node("Overlay Holder/Top")
-	var bottom: Control = combat.get_node("Overlay Holder/Bottom")
+	var combat: Node = get_parent().get_parent()
+	var top: Control = combat.get_node("UI/Overlay Holder/Top/VBoxContainer")
+	var bottom: Control = combat.get_node("UI/Overlay Holder/Bottom")
 	# -- top
 	var monster_op_bar: ProgressBar = top.get_node("MonsterOP") # Progress bar
 	var monster_name_lab: Label =  top.get_node("MonsterNAME")

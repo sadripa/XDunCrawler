@@ -2,7 +2,7 @@ extends State
 
 # Draw skills at the start of the turn
 
-onready var combat: Control = get_parent().get_parent()
+onready var combat: Node = get_parent().get_parent()
 
 func _on_enter(_args) -> void:
 	print("==================")
