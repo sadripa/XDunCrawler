@@ -4,11 +4,17 @@
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Monster Behaviors/Shared Behavior States/execute_cock_tickles.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Combat Scene/State Manegement/Monster Behaviors/Shared Behavior States/execute_tip_suck.gd" type="Script" id=3]
 
-[node name="Behavior Zero" type="Node" groups=["Behavior"]]
+[node name="Behavior Zero" type="Node" groups=[
+"Behavior",
+]]
 script = ExtResource( 1 )
 
-[node name="Execute Cock Tickles" type="Node" parent="."]
+[node name="Execute Cock Tickles" type="Node" parent="." groups=[
+"Behavior",
+]]
 script = ExtResource( 2 )
 
-[node name="Execute Tip Suck" type="Node" parent="."]
+[node name="Execute Tip Suck" type="Node" parent="." groups=[
+"Behavior",
+]]
 script = ExtResource( 3 )

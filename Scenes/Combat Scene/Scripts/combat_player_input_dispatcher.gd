@@ -1,8 +1,11 @@
 extends Node
 
+
 # Used as an intermediary between the UI input and the and the State Machine
 
+
 signal skill_chosen()
+
 
 onready var sm: StateRoot = get_parent().get_node("Combat StateRoot")
 

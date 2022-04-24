@@ -13,8 +13,6 @@
 
 [node name="Combat StateRoot" type="Node"]
 script = ExtResource( 1 )
-fsm_owner = null
-animation_player = null
 
 [node name="Initialize" type="Node" parent="."]
 script = ExtResource( 2 )

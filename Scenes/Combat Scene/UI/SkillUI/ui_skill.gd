@@ -16,7 +16,10 @@ func self_setup() -> void:
 
 
 func _on_Panel_gui_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
+	if (event is InputEventMouseButton 
+	and event.button_index == BUTTON_LEFT 
+	and event.pressed 
+	and CombatTracker.pl_can_input):
 		print("Skill pressed")
 		CombatTracker.skill_chosen = skill_name
 		pl_input_dispatcher.emit_signal("skill_chosen") # Send the signal for SM

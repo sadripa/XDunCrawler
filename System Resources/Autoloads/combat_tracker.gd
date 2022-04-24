@@ -6,6 +6,7 @@ extends Node
 var pl_op: int = 0
 var pl_max_op: int = 40
 var pl_status: Array = []
+var pl_can_input: bool = false
 var pl_skill_deck: Array = [] # The skills currently held by the player
 var pl_skill_draw: Array = [] # Cards that can be drawn (whole deck at the start of combat)
 var pl_skill_hand: Array = [] # Skill in hand at the moment

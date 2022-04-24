@@ -546,3 +546,16 @@ func is_atomic() -> bool:
 
 func is_root() -> bool:
 	return false
+
+
+# ==========
+
+# Custom additional functions
+
+func setup_added_states_with_group(state_root, group_name: String) -> void:
+	var nodes: Array = get_tree().get_nodes_in_group(group_name)
+	for n in nodes.size():
+		if nodes[n].state_root != state_root: 
+			nodes[n].state_root = state_root
+			nodes[n].target = state_root.target
+			state_root.state_map[nodes[n].name] = nodes[n]

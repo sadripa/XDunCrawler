@@ -85,15 +85,22 @@ var cock_tickles: Dictionary = {
 	"name": "Cock Tickles",
 	"body_weakness": [EnumDatabase.BodyWeaknesses.NONE],
 	"is_comment_forced" : true,
+	"db_res" : "res://Resources/Visuals/Monster/Shared/Cock Tickles/cock_tickles_ske.json",
 	
-	"sprite_zero": "Sprite Zero Cock Tickles",
 	"comment_zero" : [
 		"Fingers executing tickles.",
 		"Assessing cock consistency."
 	],
 }
 
-func cock_tickles() -> void:
+func cock_tickles(state) -> void:
+	CombatMethods.execute_skill(
+		"res://Scenes/Skills Execution/skill_execution_master.tscn",
+		cock_tickles["db_res"],
+		"cock_tickles",
+		state,
+		"Turn Updates"
+	)
 	CombatMethods.add_status(EnumDatabase.CombatStatus.SENSITIVE, CombatTracker.pl_status)
 
 var tip_suck: Dictionary = {

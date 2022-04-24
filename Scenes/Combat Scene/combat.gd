@@ -2,12 +2,18 @@ extends Node
 
 # Controls everything related to the UI after receiving informations
 
+
+# -- World
+onready var world: Node2D = get_node("World")
+onready var skeleton: GDDragonBones = get_node("World/Skeleton")
+# -- UI
 onready var pl_input_dispatcher: Node = get_node("Player Input Dispatcher")
 onready var top: Control = get_node("UI/Overlay Holder/Top")
 onready var bottom: Control = get_node("UI/Overlay Holder/Bottom")
 onready var skill_container: HBoxContainer = get_node("UI/Overlay Holder/Bottom/VBoxContainer/Skill Container")
 onready var monsterop: ProgressBar = get_node("UI/Overlay Holder/Top/VBoxContainer/MonsterOP")
 onready var playerop: ProgressBar = get_node("UI/Overlay Holder/Bottom/VBoxContainer/PlayerOP")
+# -- Other
 onready var tween: Tween = get_node("Tween")
 
 

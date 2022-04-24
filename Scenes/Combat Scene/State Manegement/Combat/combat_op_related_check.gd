@@ -37,3 +37,14 @@ func _check_update_hs() -> void:
 	# If change
 	if current_state != CombatTracker.en_hs:
 		print("HS changed to %s" % str(CombatTracker.en_hs))
+		_change_skeleton_anim(CombatTracker.en_hs)
+
+
+# Change skeleton animation according to hs
+func _change_skeleton_anim(hs) -> void:
+	var skeleton: GDDragonBones = get_node("/root/Combat/World/Skeleton")
+	match hs:
+		EnumDatabase.HornyStatus.NORMAL:
+			skeleton.set("playback/curr_animation", "normal")
+		EnumDatabase.HornyStatus.WARM:
+			skeleton.set("playback/curr_animation", "warm")

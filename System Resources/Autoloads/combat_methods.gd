@@ -163,11 +163,12 @@ func apply_status(status_array: Array, input_op: int) -> int:
 # Behavior related functions that use the XSM
 
 # Choose and move to a random sub state that is child the ref_state
-func random_sub_state(ref_state: State) -> void:
+func random_sub_state(ref_state: State) -> String:
 	var child_count: int = ref_state.get_child_count()
 	randomize()
 	var chosen_child: int = randi() % child_count
-	ref_state.change_state(ref_state.get_child(chosen_child).name)
+	print(chosen_child)
+	return ref_state.get_child(chosen_child).name
 
 # ==========
 
@@ -179,3 +180,25 @@ func tween_progressbar_value(pb: ProgressBar, tween: Tween, new_value: int) -> v
 	tween.start()
 #	yield(tween, "tween_completed")
 #	tween.remove(pb, "value")
+
+# ==========
+
+# Skill Execution related
+
+# Load, start the skill execution and wait
+func execute_skill(sc_res_path: String, db_res_path: String, skill_name: String, state, next_state: String) -> void:
+	assert(get_node("/root/Combat") != null, "execute_skill() is being used when Combat is not loaded as main scene.")
+	var combat: Node = get_node("/root/Combat")
+	var world: Node2D = combat.world
+	var sc: Node2D = load(sc_res_path).instance()
+	var db_res: GDDragonBonesResource = load(db_res_path)
+	sc.db_res = db_res
+	sc.db_anim_name = CombatTracker.en_monster_res.code_name + "_" + skill_name
+	world.add_child(sc)
+	combat.skill_container.hide_all_children(true)
+	yield(sc.skeleton, "dragon_anim_complete")
+	sc.queue_free()
+	combat.skill_container.hide_all_children(false)
+	if next_state != "" or next_state != "NONE":
+		state.change_state(next_state)
+	

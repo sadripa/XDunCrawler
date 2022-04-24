@@ -19,7 +19,4 @@ export(int, 5, 100, 5) var hot_state # OP to enter hot state
 export(PackedScene) var behavior_scene # Scene with behavior (it holds its own functions and art)
 
 # Visuals
-export(StreamTexture) var normal_sprite
-export(StreamTexture) var warm_sprite
-export(StreamTexture) var hot_sprite
-export(StreamTexture) var cum_sprite
+export(GDDragonBonesResource) var skeleton

@@ -6,7 +6,9 @@ extends State
 func _on_enter(_args) -> void:
 	print("==================")
 	print("STATE: player input")
+	
+	CombatTracker.pl_can_input = true
 
 func _on_Input_Player_Dispatcher_skill_chosen() -> void:
-	if is_active(self.name):
-		change_state("Player Execution")
+	change_state("Player Execution")
+	CombatTracker.pl_can_input = false

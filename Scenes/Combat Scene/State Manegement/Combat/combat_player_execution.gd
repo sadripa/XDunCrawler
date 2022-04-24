@@ -4,21 +4,20 @@ extends State
 # monster related behavior can relate to check for the update OP points and similar.
 
 
-onready var tween: Tween = get_parent().get_parent().get_node("Tween")
+onready var tween: Tween = get_node("/root/Combat/Tween")
 
 
 func _on_enter(_args) -> void:
 	print("==================")
-	print("STATE: player exectuion")
+	print("STATE: player execution")
 	
 	# Chosen skill will hold information for the visual and numerical execution
 	_execute_skill_method(CombatTracker.skill_chosen)
-	print(_find_skill_sprite(CombatTracker.skill_chosen)) # Need the complementary function to use the sprite visually
 	yield(tween, "tween_all_completed")
-	
+
 	# FOR TESTING, has to be connected to monster response next
 	CombatTracker.turn += 1
-	change_state("OP Related Check", self.name, CombatTracker.skill_chosen)
+	change_state("OP Related Check", self.name)
 
 
 # Execute the skill by finding it in the dictionary.
